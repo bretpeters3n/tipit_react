@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,800');
+
+/* VARS */
+:root {
+  --open-sans: 'Open Sans', 'Helvetica', sans-serif;
+  --darkNavy: #213140;
+  --teal1: #66B3FB;
+  --teal2: #4B9DEA;
+  --charcoal: #555555;
+  --gold: #B6985A;
+  --activeShadow: 0 0 10px rgba($teal1, .5);
+}
+
+/* STYLE THE HTML ELEMENTS */
+body, html {
+  font-family: var(--open-sans);
+  -webkit-font-smoothing: antialiased;
+  /* background-color: #213140; */
+}
+h1 {
+  color: purple;
+}
+input.dollar-sign-start {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" fill="grey"><text x="10" y="22" style="font: normal 16px Arial;">$</text></svg>') no-repeat;
+  box-sizing: border-box;
+  font: 16px "Arial";
+  padding-left: 22px;
+
+}
+#placeholder-custom-perc-field{
+  position: relative;
+  pointer-events: none;
+  opacity: 0;
+  display: inline-block;
+}
+#placeholder-custom-perc-field::after {
+  position: relative;
+  left: 145px;
+  top: 10px;
+  content: attr(data-placeholder);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.toggle {
+  margin: 0 0 1.5rem;
+  box-sizing: border-box;
+  font-size: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.toggle input {
+  width: 0;
+  height: 0;
+  position: absolute;
+  /* left: -9999px; */
+}
+.toggle #placeholder-custom-perc-field input {
+  width: 73px;
+  height: 38px;
+  position: relative;
+  right: 72px;
+  z-index: 5;
+  border-radius: 0 6px 6px 0;
+}
+.toggle input:checked + label {
+  background-color: #4B9DEA;
+  color: #FFF;
+  box-shadow: 0 0 10px rgb(102 179 251 / 50%);
+  border-color: #4B9DEA;
+  z-index: 1;
+}
+.toggle input + label:first-of-type {
+  border-radius: 6px 0 0 6px;
+  border-right: none;
+}
+.toggle input + label:last-of-type {
+  border-radius: 0 6px 6px 0;
+  border-left: none;
+}
+.toggle input + label {
+  margin: 0;
+  padding: 0.5rem 0.5rem;
+  box-sizing: border-box;
+  position: relative;
+  /* flex: 0 0 50%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: solid 1px #DDD;
+  background-color: #FFF;
+  font-size: 1rem;
+  line-height: 140%;
+  font-weight: 400;
+  text-align: center;
+  box-shadow: 0 0 0 rgb(255 255 255 / 0%);
+  transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+}
