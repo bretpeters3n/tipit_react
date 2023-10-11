@@ -1,15 +1,16 @@
-// import React from "react";
- 
-// This is the function that will be added to the application
+import reversedNum from './reversedNum'
+
 function Output(){
 
     var ePrice = document.getElementById('originalPrice').value;
+    var numToPerc;
+    var eTipDecimal;
     // Calculate tip
     if (document.querySelector('input[id="tip-custom-perc"]:checked')) {
-      var numToPerc = .01;
-      var eTipDecimal = (document.querySelector('input[id="tip-custom-perc-value"]').value) * numToPerc;
+      numToPerc = .01;
+      eTipDecimal = (document.querySelector('input[id="tip-custom-perc-value"]').value) * numToPerc;
     } else {
-      var eTipDecimal = document.querySelector('input[name="tip-percent"]:checked').value;
+      eTipDecimal = document.querySelector('input[name="tip-percent"]:checked').value;
     }
     // Set EXACT values (totals, prices, and tips) & make them have a decimal and cents
     ePrice = parseFloat(ePrice).toFixed(2);
@@ -50,11 +51,11 @@ function Output(){
 
     // create after decimal values
     var totalFullNumberDec = (reversedNum(totalFullNumber) / lengthDivider) * 100;
-    var totalFullNumberDec = Math.floor(totalFullNumberDec);
-    var totalFullNumberDec = totalFullNumberDec / 100;
+    totalFullNumberDec = Math.floor(totalFullNumberDec);
+    totalFullNumberDec = totalFullNumberDec / 100;
     var totalFullNumberMINUSONEDec = (reversedNum(totalFullNumberMINUSONE) / lengthDivider) * 100;
-    var totalFullNumberMINUSONEDec = Math.floor(totalFullNumberMINUSONEDec);
-    var totalFullNumberMINUSONEDec = totalFullNumberMINUSONEDec / 100;
+    totalFullNumberMINUSONEDec = Math.floor(totalFullNumberMINUSONEDec);
+    totalFullNumberMINUSONEDec = totalFullNumberMINUSONEDec / 100;
     // add decimal and 'after decimal values' above to 'totalFullNumber' to create the palindrome
     var hTotal = totalFullNumber + totalFullNumberDec;
     var lTotal = totalFullNumberMINUSONE + totalFullNumberMINUSONEDec;
@@ -65,8 +66,8 @@ function Output(){
       // alert ("Your high and low palindromes are incorrect. Apply auto fix.");
       // create after decimal values
       var totalFullNumberPLUSONEDec = (reversedNum(totalFullNumberPLUSONE) / lengthDivider) * 100;
-      var totalFullNumberPLUSONEDec = Math.floor(totalFullNumberPLUSONEDec);
-      var totalFullNumberPLUSONEDec = totalFullNumberPLUSONEDec / 100;
+      totalFullNumberPLUSONEDec = Math.floor(totalFullNumberPLUSONEDec);
+      totalFullNumberPLUSONEDec = totalFullNumberPLUSONEDec / 100;
       totalFullNumberDec = (reversedNum(totalFullNumber) / lengthDivider) * 100;
       totalFullNumberDec = Math.floor(totalFullNumberDec);
       totalFullNumberDec = totalFullNumberDec / 100;
@@ -122,30 +123,5 @@ function Output(){
     document.getElementById('lTip').innerHTML = 'Low tip = ' + lTip;
     document.getElementById('lTipPerc').innerHTML = 'Low tip % = ' + lTipPerc;
   }
-  function tipCustomPercValue_ON() {
-    console.log('test-toggle-ON');
-    var element = document.getElementById("placeholder-custom-perc-field");
-    element.style.opacity = "1";
-    element.style.pointerEvents = "auto";
-  }
-  function tipCustomPercValue_OFF() {
-    console.log('test-toggle-OFF');
-    var element = document.getElementById("placeholder-custom-perc-field");
-    element.style.opacity = "0";
-    element.style.pointerEvents = "none";
-  }
-  function reversedNum(num) {
-    return (
-      parseFloat(
-        num
-          .toString()
-          .split('')
-          .reverse()
-          .join('')
-      ) * Math.sign(num)
-    )                 
-  }
  
 export default Output;
-export default tipCustomPercValue_ON;
-export default tipCustomPercValue_OFF;

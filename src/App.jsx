@@ -6,6 +6,7 @@ import EnterTotal from './components/EnterTotal'
 import ChooseYourTip from './components/ChooseYourTip'
 import BtnCalculate from './components/BtnCalculate'
 import ResultsForTesting from './components/ResultsForTesting'
+import Output from './components/Output'
 import './App.css'
 import './css/main.css'
 
@@ -20,6 +21,7 @@ function App() {
         <ChooseYourTip />
         <BtnCalculate />
         <ResultsForTesting />
+        <Output />
         {/* <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
