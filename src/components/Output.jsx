@@ -1,4 +1,4 @@
-import reversedNum from './reversedNum'
+import reversedNum from './ReversedNum'
 
 function Output(){
 

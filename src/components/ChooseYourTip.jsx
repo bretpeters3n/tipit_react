@@ -1,5 +1,5 @@
-// import TipCustomPercValue_OFF from './TipCustomPercValue_OFF'
-// import TipCustomPercValue_ON from './TipCustomPercValue_ON'
+import TipCustomPercValue_OFF from './TipCustomPercValue_OFF'
+import TipCustomPercValue_ON from './TipCustomPercValue_ON'
 
 const ChooseYourTip = () => {
     return (
