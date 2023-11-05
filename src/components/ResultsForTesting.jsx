@@ -1,9 +1,14 @@
 import { useState } from 'react'
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 
 const ResultsForTesting = ({parentToChild}) => {
     let price = parentToChild[0];
     let percentage = parentToChild[1];
+
+    function tipChoice() {
+        console.log('decoy. delete this later.');
+    }
 
     function reversedNum(num) {
         return (
@@ -112,20 +117,85 @@ const ResultsForTesting = ({parentToChild}) => {
     eTipPerc = (Math.round(eTipPerc * 100) / 100).toFixed(2);
 
     return (
-        <div className="pb-2">
-            <p id="eTotal">eTotal - ${eTotal}</p>
-            <p id="ePrice">ePrice - ${ePrice}</p>
-            <p id="eTip">eTip - ${eTip}</p>
-            <p id="eTipPerc">eTipPerc - {eTipPerc}%</p>
-            <p>&nbsp;</p>
-            <p id="hTotal">hTotal - ${hTotal}</p>
-            <p id="hTip">hTip - ${hTip}</p>
-            <p id="hTipPerc">hTipPerc - {hTipPerc}%</p>
-            <p>&nbsp;</p>
-            <p id="lTotal">lTotal - ${lTotal}</p>
-            <p id="lTip">lTip - ${lTip}</p>
-            <p id="lTipPerc">lTipPerc - {lTipPerc}%</p>
-        </div>
+        // <div className="pb-2">
+        //     <p id="eTotal">eTotal - ${eTotal}</p>
+        //     <p id="ePrice">ePrice - ${ePrice}</p>
+        //     <p id="eTip">eTip - ${eTip}</p>
+        //     <p id="eTipPerc">eTipPerc - {eTipPerc}%</p>
+        //     <p>&nbsp;</p>
+        //     <p id="hTotal">hTotal - ${hTotal}</p>
+        //     <p id="hTip">hTip - ${hTip}</p>
+        //     <p id="hTipPerc">hTipPerc - {hTipPerc}%</p>
+        //     <p>&nbsp;</p>
+        //     <p id="lTotal">lTotal - ${lTotal}</p>
+        //     <p id="lTip">lTip - ${lTip}</p>
+        //     <p id="lTipPerc">lTipPerc - {lTipPerc}%</p>
+        // </div>
+        <Splide>
+            <SplideSlide>
+                <div id="high" className="splide__slide block bg-white w-full border border-slate-300 rounded-md py-2 pl-3 pr-3 mb-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm">
+                    <p className="text-xs uppercase font-bold text-purple-600 block pb-2 pt-1">High Palindrome</p>
+                    <div className="flex justify-between">
+                        <div>
+                        <p id="hTotal" className="text-base uppercase font-bold text-purple-600">${hTotal}</p>
+                        <p className="text-xs uppercase text-purple-600">High Total</p>
+                        </div>
+                        <div>
+                        <p id="hTip" className="text-base uppercase font-bold text-purple-600">${hTip}</p>
+                        <p className="text-xs uppercase text-purple-600">High Tip</p>
+                        </div>
+                        <div>
+                        <p id="hTipPerc" className="text-right text-base uppercase font-bold text-purple-600">{hTipPerc}%</p>
+                        <p className="text-right text-xs uppercase text-purple-600">Tip %</p>
+                        </div>
+                    </div>
+                    <div className="pt-2">
+                        <button className="w-full px-4 py-1 text-sm text-white font-semibold rounded-full bg-purple-500 border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" onClick={tipChoice('high')}>Choose high tip</button>
+                    </div>
+                </div>
+            </SplideSlide>
+            <SplideSlide>
+                <div className="splide__slide block w-full border-dashed border-slate-300 border-2 rounded-md py-2 pl-3 pr-3 mb-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm">
+                    <p className="text-xs uppercase font-bold text-slate-500 block pb-2 pt-1">Original <span className="font-normal normal-case">(not palindrome)</span></p>
+                    <div className="flex justify-between">
+                        <div>
+                        <p id="eTotal" className="text-base uppercase font-bold text-slate-500">${eTotal}</p>
+                        <p className="text-xs uppercase text-slate-500">Total</p>
+                        </div>
+                        <div>
+                        <p id="eTip" className="text-base uppercase font-bold text-slate-500">${eTip}</p>
+                        <p className="text-xs uppercase text-slate-500">Tip</p>
+                        </div>
+                        <div>
+                        <p id="eTipPerc" className="text-right text-base uppercase font-bold text-slate-500">{eTipPerc}</p>
+                        <p className="text-right text-xs uppercase text-slate-500">Tip %</p>
+                        </div>
+                    </div>
+                </div>
+            </SplideSlide>
+            <SplideSlide>
+                <div id="low" className="splide__slide block bg-white w-full border border-slate-300 rounded-md py-2 pl-3 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm">
+                    <p className="text-xs uppercase font-bold text-purple-600 block pb-2 pt-1">Low Palindrome</p>
+                    <div className="flex justify-between">
+                        <div>
+                        <p id="lTotal" className="text-base uppercase font-bold text-purple-600">${lTotal}</p>
+                        <p className="text-xs uppercase text-purple-600">Low Total</p>
+                        </div>
+                        <div>
+                        <p id="lTip" className="text-base uppercase font-bold text-purple-600">${lTip}</p>
+                        <p className="text-xs uppercase text-purple-600">Low Tip</p>
+                        </div>
+                        <div>
+                        <p id="lTipPerc" className="text-right text-base uppercase font-bold text-purple-600">{lTipPerc}%</p>
+                        <p className="text-right text-xs uppercase text-purple-600">Tip %</p>
+                        </div>
+                    </div>
+                    <div className="pt-2">
+                        <button className="w-full px-4 py-1 text-sm text-white font-semibold rounded-full bg-purple-500 border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" onClick={tipChoice('low')}>Choose low tip</button>
+                    </div>
+                </div>
+            </SplideSlide>
+        </Splide>
     )
 }
 export default ResultsForTesting;
