@@ -1,0 +1,139 @@
+nav {
+  width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* outline: 1px solid red; */
+    background-color: rgb(250 245 255);
+    /* margin: -8px; */
+}
+
+
+nav #menu {
+    display: none;
+    flex-direction: column;
+    margin: 0;
+    padding: 0 0 1em 0;
+    position: fixed;
+    z-index: 2;
+    top: 64px;
+    /* background-color: aqua; */
+    background-color: rgba(250, 245, 255, .95);
+    width: 100vw;
+    height: 100vh;
+}
+.opened {
+    display: flex !important;
+}
+
+nav #logo {
+    background: rgba(147 51 234);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: .75em;
+}
+
+button#hamburger {
+    position: absolute;
+    right: .75em;
+    top: .75em;
+    border: unset;
+    padding: unset;
+    background-color: unset;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+
+nav li {
+    margin: .4em;
+    text-align: center;
+}
+
+/* hamburger icon */
+button#hamburger {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+  }
+  .line {
+    fill: none;
+    stroke: rgba(147 51 234);
+    stroke-width: 6;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 6;
+  }
+  .line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .opened .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+  .opened .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+  }
+  .opened .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+  
+
+@media (min-width: 568px) {
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    nav #logo {
+        margin-left: .75em;
+    }
+    nav #menu {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-content: center;
+        width: unset;
+        position: unset;
+        margin: unset;
+        height: unset;
+        z-index: unset;
+        padding: unset;
+    }
+    button#hamburger {
+        display: none !important;
+    }
+    .opened {
+        display: none;
+    }
+    nav li {
+        margin: 0 .5em;
+    }
+    nav li:first-child {
+        margin: 0 1em 0 2em;
+    }
+    nav li:last-child {
+        margin: 0 2em 0 1em;
+    }
+  }
