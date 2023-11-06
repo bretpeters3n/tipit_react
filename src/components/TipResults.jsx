@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 
@@ -6,8 +5,15 @@ const ResultsForTesting = ({parentToChild}) => {
     let price = parentToChild[0];
     let percentage = parentToChild[1];
 
-    function tipChoice() {
-        console.log('decoy. delete this later.');
+    let tipEvents = JSON.parse(localStorage.getItem('tipEvents'));
+    if (tipEvents === null) {
+        console.log('empty');
+        tipEvents = [];
+    }
+
+    const resultsToHistory = (tipEvent) => {
+        tipEvents.push(tipEvent);
+        localStorage.setItem('tipEvents', JSON.stringify(tipEvents));
     }
 
     function reversedNum(num) {
@@ -150,7 +156,7 @@ const ResultsForTesting = ({parentToChild}) => {
                         </div>
                     </div>
                     <div className="pt-2">
-                        <button className="w-full px-4 py-1 text-sm text-white font-semibold rounded-full bg-purple-500 border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" onClick={tipChoice('high')}>Choose high tip</button>
+                        <button className="w-full px-4 py-1 text-sm text-white font-semibold rounded-full bg-purple-500 border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" onClick={() => resultsToHistory({'highLow': 'high', 'total': hTotal, 'tipPerc': hTipPerc, 'eventDate': new Date()})}>Choose high tip</button>
                     </div>
                 </div>
             </SplideSlide>
@@ -191,7 +197,7 @@ const ResultsForTesting = ({parentToChild}) => {
                         </div>
                     </div>
                     <div className="pt-2">
-                        <button className="w-full px-4 py-1 text-sm text-white font-semibold rounded-full bg-purple-500 border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" onClick={tipChoice('low')}>Choose low tip</button>
+                        <button className="w-full px-4 py-1 text-sm text-white font-semibold rounded-full bg-purple-500 border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" onClick={() => resultsToHistory({'highLow': 'low', 'total': lTotal, 'tipPerc': lTipPerc, 'eventDate': new Date()})}>Choose low tip</button>
                     </div>
                 </div>
             </SplideSlide>

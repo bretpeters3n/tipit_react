@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ResultsForTesting from './ResultsForTesting'
+import TipResults from './TipResults'
 import '../css/tipStyles.css'
 import '../js/splide.min.js'
 
@@ -252,7 +252,7 @@ const Home = () => {
                 <button className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full bg-white border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" type="submit" onClick={() => parentToChild()}>Calculate</button>
             </div>
 
-            <ResultsForTesting parentToChild={data}/>
+            <TipResults parentToChild={data}/>
 
             {/* <section id="splide" className="splide hide" aria-label="Splide Basic HTML Example">
                 <div className="splide__track">

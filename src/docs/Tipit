@@ -1,0 +1,39 @@
+Tipit
+____
+
+Changes/issues:
+	before react transfer:
+		DONE - 'are you sure' on 'choose tip'
+		- removing tip events sometimes removing too many entries
+		- react transfer (start now)
+	after react transfer:
+		- remove white BG on 'ORIGINAL' slide
+----
+11/04/2023
+----
+DONE - convert array into needed variables.
+DONE - make output calculations.
+DONE - get splide to show up on page
+DONE - integrate calculations into splide slides
+
+DONE - create array of objects for initial tip history
+DONE - make tip history visibly show up on 'history' page (splide slides)
+DONE - make 'choose ___ tip' button add tip event to tip history array
+DONE - allow 'remove' buttons on history page to delete items
+- remove auto generated tip history entries and add a note to the user
+- start why page (add github link)
+DONE - change 'ResultsForTesting.jsx' file name
+- splide slides should not be visible until after 'Calculate' is pressed
+- transition animation after choosing tip?
+- add catches for submitting NAN tips to history
+- 
+
+
+NOPE - Medical and Dental payment setups
+
+TMR
+----
+- try out Front End Masters (watch one. worth it?)
+ - sign up for HTMX and Go?
+- 
+
